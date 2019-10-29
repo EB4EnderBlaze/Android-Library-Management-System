@@ -14,9 +14,10 @@ create table book
 	status varchar(8)
 		check (status in ('issued', 'free')), 
 	category varchar(10), 
-	author varchar(50),
+	author_name_id numeric(10),
 	publisher varchar(100),
-	primary key(book_id)
+	primary key(book_id),
+	foreign key (author_name_id) references name(name_id)
 	);
 create table employee 
 	(employee_id numeric(10), 
