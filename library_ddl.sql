@@ -1,12 +1,5 @@
 create database library;
 	use library;
-create table name
-	(name_id numeric(10, 0),
-	first_name varchar(15),
-	middle_name varchar(15),
-	last_name varchar(15),
-	primary key(name_id)
-	);
 create table book 
 	(title varchar(255) not null,
 	edition numeric(5,0),
@@ -14,37 +7,23 @@ create table book
 	status varchar(8)
 		check (status in ('issued', 'free')), 
 	category varchar(10), 
-	author_name_id numeric(10),
-	publisher varchar(100),
-	primary key(book_id),
-	foreign key (author_name_id) references name(name_id)
+	author_name varchar(20),
+	publisher varchar(20),
+	primary key(book_id)
 	);
 create table employee 
 	(employee_id numeric(10), 
-	name_id numeric(10) not null, 
+	name varchar(20), 
 	salary numeric(7,0),
 	position varchar(9)
 		check (position in ('manager', 'clerk', 'peon')),
-	primary key(employee_id),
-	foreign key(name_id) references name(name_id)
+	primary key(employee_id)
 	);
-create table address
-	(address_id numeric(10),
-	contact_number varchar(15) not null,
- 	status varchar(10)
- 		check (status in ('customer', 'library')),
- 	street varchar(40),
- 	city varchar(35) not null,
- 	state varchar(25) not null,
- 	zipcode varchar(10) not null,
- 	primary key(address_id)
- 	);
 create table branch 
-	(address_id numeric(10), 
+	(address varchar(50), 
 	branch_id numeric(10), 
 	manager_id numeric(10),
 	primary key(branch_id),
-	foreign key(address_id) references address(address_id),
 	foreign key(manager_id) references employee(employee_id)
 	);
 create table customer 
@@ -52,12 +31,10 @@ create table customer
 	regdate date, 
 	books_issued numeric(2, 0)
 		check (books_issued >= 0 and books_issued < 4), 
-	name_id numeric(10),
-	address_id numeric(10),
+	name varchar(20),
+	address varchar(20),
 	fine numeric(5, 0),
-	primary key(customer_id),
-	foreign key(address_id) references address(address_id),
-	foreign key(name_id) references name(name_id)
+	primary key(customer_id)
 	);
 create table transaction_status
 	(customer_id numeric(10), 
