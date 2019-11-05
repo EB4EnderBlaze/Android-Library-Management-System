@@ -6,11 +6,12 @@
 		<center>
 			<h1>Issue or Return a Book</h1>
 			<hr>
-			<form action = "transaction.php">
+			<form action = "transaction.php" method = "post">
 				Transaction ID : <input type = "text" name = "transID"><br><br>
 				Book ID : <input type = "text" name = "bookID"><br><br>
 				Customer ID : <input type = "text" name = "custID"><br><br>
-				Transaction Type : <select>
+				Branch ID : <input type = "text" name = "branchID"><br><br>
+				Transaction Type : <select name = "transtype">
 					<option value = "select" selected> Select One </option>
 					<option value = "transissue"> Issue </option>
 					<option value = "transreturn"> Return </option>

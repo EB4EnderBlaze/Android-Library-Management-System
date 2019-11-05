@@ -5,8 +5,7 @@
 	$username = "root";
 	$password = "password";
 	$database = "library";
-    $currentDateTime = date('Y-m-d');
-    //echo $currentDateTime;
+
 	//Connect
 	$conn = mysqli_connect($servername, $username, $password, $database);
 	if(!$conn){
@@ -16,10 +15,10 @@
 		echo "Database connected sucessfully";
 		echo "<br>";
 	}
-	$sql = "insert into transaction_status(trans_id, book_id, customer_id, branch_id, issue, trans_date) values ('".$_POST["transID"]."', '".$_POST["bookID"]."', '".$_POST["custID"]."', '".$_POST["branchID"]."', '".$_POST["transtype"]."', '".$currentDateTime."')";
+	$sql = "insert into branch(address, branch_id, manager_id) values ('".$_POST["address"]."', '".$_POST["branchID"]."', '".$_POST["mgrID"]."')";
 	if(mysqli_query($conn, $sql)){
     	echo "New record created successfully";
-    	include 'homepage.html';
+    	header("Location: homepage.html");
 	}else{
     	echo "Error: " . $sql . "<br>" . 	mysqli_error($conn);
 	}

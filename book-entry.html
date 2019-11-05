@@ -3,16 +3,17 @@
 	<body><center>
 		<h1>Book Entry</h1>
 		<hr>
-		<form>
+		<form action = "book.php" method = "post">
 			ID : <input type = "text" name = "bookID"><br><br>
 			Title : <input type = "text" name = "title"><br><br>
 			Edition : <input type = "text" name = "edition"><br><br>
 			Category : <input type = "text" name = "category"><br><br>
 			Author : <input type = "text" name = "author"><br><br>
 			Publisher : <input type = "text" name = "publisher"><br><br>
-			Status : <select>
-				<option value = "select" selected>Select</option>
+			Status : <select name = "status">
+				<option value = "null" selected>Select</option>
 				<option value = "available">Available</option>
+				<option value = "out of stock">Out of Stock</option>
 			</select><br><br>
 			<input type = "submit" name = "bookSubmit">
 		</form>
