@@ -5,22 +5,40 @@
 	$username = "root";
 	$password = "password";
 	$database = "library";
-
-	//Connect
-	$conn = mysqli_connect($servername, $username, $password, $database);
-	if(!$conn){
-		die("connection_failed: ".mysqli_connect_error());
+	//Check if password is correct or not?
+	if(!($_POST["empPass"] || $_POST["RePass"] || $_POST["empID"] || $_POST["empName"])){
+		echo "Please enter all the fields!!";
+		echo "<script>setTimeout(\"location.href = 'employee-signup.html';\",3600);</script>";
 	}
 	else{
-		echo "Database connected sucessfully";
-		echo "<br>";
+		if($_POST["empPass"] != $_POST["RePass"]){
+			echo "Please enter the same password in the second block for password as entered in the first one";
+			echo "<script>setTimeout(\"location.href = 'employee-signup.html';\",3600);</script>";
+			//header('Location: employee-signup.html'); 	
+		}
+		else{
+			//Connect
+			$conn = mysqli_connect($servername, $username, $password, $database);
+			if(!$conn){
+				die("connection_failed: ".mysqli_connect_error());
+			}
+			else{
+				echo "Database connected sucessfully";
+				echo "<br>";
+			}
+			$sql = "insert into employee(employee_id, name, password) values ('".$_POST["empID"]."', '".$_POST["empName"]."', '".$_POST["empPass"]."')";
+			if(mysqli_query($conn, $sql)){
+				//echo "Login with your username and password";
+    			//sleep(60);
+    		//header('Location: employee-login.html');
+    			echo "New Employee added";
+				echo "<script>setTimeout(\"location.href = 'admin-home.html';\",3600);</script>";
+			}else{
+    			echo "Error: " . $sql . "<br>" . 	mysqli_error($conn);
+    			echo "Sorry, there is some error please try again!";
+				echo "<script>setTimeout(\"location.href = 'employee-signup.html';\",3600);</script>";
+			}
+		mysqli_close($conn);
+		}
 	}
-	$sql = "insert into employee(employee_id, name, password) values ('".$_POST["empID"]."', '".$_POST["empName"]."', '".$_POST["empPass"]."')";
-	if(mysqli_query($conn, $sql)){
-    	echo "New record created successfully";
-    	include 'homepage.html';
-	}else{
-    	echo "Error: " . $sql . "<br>" . 	mysqli_error($conn);
-	}
-	mysqli_close($conn);
 ?>
