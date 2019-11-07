@@ -1,6 +1,36 @@
 <html>
 	<head>
 		<title>Admin</title>
+		<style>
+		body {
+			font-family: "Arial";
+			background:rgb(242,238,203);
+		}
+		h1 {
+			color:blue;
+			text-transform:uppercase;
+			font-size:40px;
+			font-style:oblique;
+			font-weight: bold;
+		}
+		a {
+			font-size:30px;
+			line-height: 50px;
+			text-transform:uppercase;
+		}
+		a:link {
+			color:orange;
+		}
+		a:visited {
+			color:lime;
+		}
+		a:hover{
+			color:blue;
+		}
+		a:active{
+			color:cyan;
+		}
+	</style>
 	</head>
 	<body>
 		<center>
@@ -12,6 +42,18 @@
 			<!a href = "customer-login.html"->
 			<a href = "customer-signup.html">Add new customers</a><br>
 			<a href = "branchcreate.html">Create new branch</a><br>
+			<form action = "employee-display.php" method = "post"> 
+				<input type = "submit" name = "empDataGet" value = "Get emp data">		
+			</form>
+			<form action = "customer-display.php" method = "post"> 
+				<input type = "submit" name = "custDataGet" value = "Get customer data">		
+			</form>
+			<form action = "branch-display.php" method = "post"> 
+				<input type = "submit" name = "branchDataGet" value = "Get branch data">		
+			</form>
+			<form action = "book-display.php" method = "post"> 
+				<input type = "submit" name = "bookDataGet" value = "Get book data">		
+			</form>
 		</center>
 	</body>
 </html>
