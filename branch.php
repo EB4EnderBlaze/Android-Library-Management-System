@@ -23,7 +23,7 @@
 		$sql = "insert into branch(address, branch_id, manager_id) values ('".$_POST["address"]."', '".$_POST["branchID"]."', '".$_POST["mgrID"]."')";
 		if(mysqli_query($conn, $sql)){
 	    	echo "New branch added sucessfully";
-	    	echo "<script>setTimeout(\"location.href = 'admin_home.html';\",3600);</script>";
+	    	echo "<script>setTimeout(\"location.href = 'admin-home.html';\",3600);</script>";
 		}else{
 			echo "Due to some unexpected error, the branch was not created Please try again!!";
 	    	echo "Error: " . $sql . "<br>" . 	mysqli_error($conn);

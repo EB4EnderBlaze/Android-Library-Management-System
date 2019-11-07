@@ -25,7 +25,7 @@
             { 
                 echo 'Hey admin welcome!!';
                 //header('Location: transaction.html');
-                echo "<script>setTimeout(\"location.href = 'admin_home.html';\",3600);</script>";
+                echo "<script>setTimeout(\"location.href = 'admin-home.html';\",3600);</script>";
             }
             else
             {

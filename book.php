@@ -23,7 +23,7 @@
 		$sql = "insert into book(title, edition, book_id, status ,category, author_name, publisher) values ('".$_POST["title"]."', '".$_POST["edition"]."', '".$_POST["bookID"]."', '".$_POST["status"]."', '".$_POST["category"]."','".$_POST["author"]."', '".$_POST["publisher"]."' )";
 		if(mysqli_query($conn, $sql)){
 	    	echo "New Book Added Sucessfully";
-	    	echo "<script>setTimeout(\"location.href = 'employee_homepage.html';\",3600);</script>";
+	    	echo "<script>setTimeout(\"location.href = 'employee-homepage.html';\",3600);</script>";
 		}else{
 	    	echo "Error: " . $sql . "<br>" . 	mysqli_error($conn);
 	    	echo "<script>setTimeout(\"location.href = 'book-entry.html';\",3600);</script>";

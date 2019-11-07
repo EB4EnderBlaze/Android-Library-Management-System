@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<title>Issue or Return a Book</title>
+	</head>
+	<body>
+		<center>
+			<h1>Issue or Return a Book</h1>
+			<hr>
+			<form action = "customer-transaction.php" method = "post">
+				Transaction ID : <input type = "text" name = "transID"><br><br>
+				Book ID : <input type = "text" name = "bookID"><br><br>
+				Customer ID : <input type = "text" name = "custID"><br><br>
+				Branch ID : <input type = "text" name = "branchID"><br><br>
+				Transaction Type : <select name = "transtype">
+					<option value = "select" selected> Select One </option>
+					<option value = "transissue"> Issue </option>
+					<option value = "transreturn"> Return </option>
+				</select><br><br>
+				<input type = "submit" name = "transSubmit">
+				<!input type="button" value="Go Back" onClick="javascript:history.go(-4)" />
+			</form>
+		</center>
+	</body>
+</html>

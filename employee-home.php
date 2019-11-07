@@ -24,19 +24,16 @@
             if($password == $ans1["password"]) 
             { 
                 echo 'You are now logged in , you can perform transaction on books now';
-                //header('Location: transaction.html');
                 echo "<script>setTimeout(\"location.href = 'employee-homepage.html';\",3600);</script>";
             }
             else
             {
                 echo'The username or password are incorrect!';
-                //header('Location: employee-login.html');
                 echo "<script>setTimeout(\"location.href = 'employee-login.html';\",3600);</script>";
             }
     }
     else {
         echo 'Please enter both username and password!';
-        //header('Location: employee-login.html');
         echo "<script>setTimeout(\"location.href = 'employee-login.html';\",3600);</script>";
     }
 ?>
