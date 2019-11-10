@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Admin Login</title>
+		<title>Enter detials to be edited</title>
 		<style>
 		body {
 			font-family: "Arial";
@@ -34,11 +34,14 @@
 	</head>
 	<body>
 		<center>
-			<h1>Admin Login</h1>
+			<h1>Employee Record Editing</h1>
 			<hr>
-			<form action = "admin.php" method = "post"> 
-				ID : <input type = "text" name = "adminID"><br><br>
-				Password : <input type = "password" name = "adminPass"><br><br>
+			<form action = "employee-edit2.php" method = "post"> 
+				ID : <input type = "text" name = "empID"><br><br>
+				Name : <input type = "text" name = "empName"><br><br>
+				Salary : <input type = "text" name = "empSalary"><br><br>
+				position(peon/clerk/manager) : <input type = "text" name = "empPosition"><br><br>
+				Password : <input type = "password" name = "empPass"><br><br>
 				<input type = "submit" name = "empSubmit">
 			</form>
 		</center>

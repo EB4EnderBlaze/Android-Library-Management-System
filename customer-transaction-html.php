@@ -1,3 +1,7 @@
+<?php
+session_start();
+echo "Your id is " . $_SESSION['customer_id'] . ".<br>";
+?>
 <html>
 	<head>
 		<title>Issue or Return a Book</title>
@@ -36,10 +40,9 @@
 		<center>
 			<h1>Issue or Return a Book</h1>
 			<hr>
-			<form action = "employee-transaction.php" method = "post">
+			<form action = "customer-transaction.php" method = "post">
 				Transaction ID : <input type = "text" name = "transID"><br><br>
 				Book ID : <input type = "text" name = "bookID"><br><br>
-				Customer ID : <input type = "text" name = "custID"><br><br>
 				Branch ID : <input type = "text" name = "branchID"><br><br>
 				Transaction Type : <select name = "transtype">
 					<option value = "select" selected> Select One </option>

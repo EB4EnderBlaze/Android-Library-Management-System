@@ -1,6 +1,6 @@
 <?php
 				session_start();
-				echo "Admin_ID is " . $_SESSION["admin_id"] . ".<br>";
+				echo "Your id is " . $_SESSION['customer_id'] . ".<br>";
 				$servername = "localhost";
 	    		$username = "root";
 	    		$password = "password";
@@ -14,14 +14,15 @@
 					echo "Database connected sucessfully";
 					echo "<br>";
 				}
-				$query = "SELECT * FROM customer";
+				$query = "SELECT * FROM book";
 				$result = mysqli_query($connection, $query);
 				echo "<table border>";
-				echo "<th>Customer ID</th><th>Reg Date</th><th>Books Issued</th><th>Name</th><th>Address</th><th>Fine</th>";
+				echo "<th>Title</th><th>Edition</th><th>Book ID</th><th>Status</th><th>Category</th><th>Author Name</th><th>Publisher</th>";
 				while($row = mysqli_fetch_array($result)){   
-				echo "<tr><td>" . $row['customer_id'] . "</td><td>" . $row['regdate'] . "</td><td>" . $row['books_issued'] . "</td><td>" . $row['name'] . "</td><td>" . $row['address'] . "</td><td>" . $row['fine'] . "</td></tr>"; 
+				echo "<tr><td>" . $row['title'] . "</td><td>" . $row['edition'] . "</td><td>" . $row['book_id'] . "</td><td>" . $row['status'] . "</td><td>" . $row['category'] . "</td><td>" . $row['author_name'] . "</td><td>" . $row['publisher'] . "</td></tr>"; 
 				}
 				echo "</table>";
-				echo "<a href = 'admin-home.php'>Go Back</a>"; 
+				echo "<a href = 'customer-homepage.php'>Go Back</a><br>"; 
+				echo "<a href = 'customer-logout.php'>Log out</a>";
 				mysqli_close($connection); 
 ?>

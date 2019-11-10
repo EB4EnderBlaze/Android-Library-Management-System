@@ -23,8 +23,10 @@
             $ans1 = mysqli_fetch_assoc($result1);
             if($password == $ans1["password"]) 
             { 
+                session_start();
                 echo 'You are now logged in , you can perform transaction on books now';
-                echo "<script>setTimeout(\"location.href = 'employee-homepage.html';\",3600);</script>";
+                $_SESSION['employee_id'] = $ID;
+                echo "<script>setTimeout(\"location.href = 'employee-homepage.php';\",3600);</script>";
             }
             else
             {

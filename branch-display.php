@@ -1,4 +1,6 @@
 <?php
+				session_start();
+				echo "Admin_ID is " . $_SESSION["admin_id"] . ".<br>";
 				$servername = "localhost";
 	    		$username = "root";
 	    		$password = "password";
@@ -20,6 +22,6 @@
 				echo "<tr><td>" . $row['address'] . "</td><td>" . $row['branch_id'] . "</td><td>" . $row['manager_id'] . "</td></tr>"; 
 				}
 				echo "</table>";
-				echo "<a href = 'admin-home.html'>Go Back</a>"; 
+				echo "<a href = 'admin-home.php'>Go Back</a>"; 
 				mysqli_close($connection); 
 ?>

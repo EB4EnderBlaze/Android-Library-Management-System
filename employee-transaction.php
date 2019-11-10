@@ -24,7 +24,7 @@
 		$sql = "insert into transaction_status(trans_id, book_id, customer_id, branch_id, issue, trans_date) values ('".$_POST["transID"]."', '".$_POST["bookID"]."', '".$_POST["custID"]."', '".$_POST["branchID"]."', '".$_POST["transtype"]."', '".$currentDateTime."')";
 		if(mysqli_query($conn, $sql)){
 	    	echo "New record created successfully";
-	    	echo "<script>setTimeout(\"location.href = 'employee-homepage.html';\",3600);</script>";
+	    	echo "<script>setTimeout(\"location.href = 'employee-homepage.php';\",3600);</script>";
 		}else{
 			echo "Sorry some unexpected error occured please try again!";
 	    	echo "Error: " . $sql . "<br>" . 	mysqli_error($conn);

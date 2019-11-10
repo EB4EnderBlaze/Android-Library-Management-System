@@ -1,21 +1,19 @@
 <?php
+	session_start();
 	//In this code we demonstrate insertion of data
 	//Declare the variables
+	
 	$servername = "localhost";
 	$username = "root";
 	$password = "password";
 	$database = "library";
+	$current_id = $_SESSION['admin_id'];
 	//Check if password is correct or not?
-	if(!($_POST["empPass"] || $_POST["RePass"] || $_POST["empID"] || $_POST["empName"])){
+	if(!($_POST["adminPass"] || $_POST["adminID"])){
 		echo "Please enter all the fields!!";
 		echo "<script>setTimeout(\"location.href = 'employee-signup.html';\",3600);</script>";
 	}
 	else{
-		if($_POST["empPass"] != $_POST["RePass"]){
-			echo "Please enter the same password in the second block for password as entered in the first one";
-			echo "<script>setTimeout(\"location.href = 'employee-signup.html';\",3600);</script>";	
-		}
-		else{
 			//Connect
 			$conn = mysqli_connect($servername, $username, $password, $database);
 			if(!$conn){
@@ -25,16 +23,18 @@
 				echo "Database connected sucessfully";
 				echo "<br>";
 			}
-			$sql = "insert into employee(employee_id, name, password) values ('".$_POST["empID"]."', '".$_POST["empName"]."', '".$_POST["empPass"]."')";
+			$sql = "delete from admin where id = $current_id";
+			mysqli_query($conn, $sql);
+			$sql = "insert into admin(id, password) values ('".$_POST["adminID"]."',  '".$_POST["adminPass"]."')";
 			if(mysqli_query($conn, $sql)){
-    			echo "New Employee added";
+    			echo "Credentials of admin changed successfully";
+    			$_SESSION['admin_id'] = $_POST["adminID"];
 				echo "<script>setTimeout(\"location.href = 'admin-home.php';\",3600);</script>";
 			}else{
     			echo "Error: " . $sql . "<br>" . 	mysqli_error($conn);
     			echo "Sorry, there is some error please try again!";
-				echo "<script>setTimeout(\"location.href = 'employee-signup.html';\",3600);</script>";
+				echo "<script>setTimeout(\"location.href = 'change-admin.html';\",3600);</script>";
 			}
 		mysqli_close($conn);
 		}
-	}
 ?>
