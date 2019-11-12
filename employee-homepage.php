@@ -1,11 +1,77 @@
 <?php
+$servername = "localhost";
+	$username = "root";
+	$password = "password";
+	$database = "library";
 session_start();
-echo "Employee ID is " . $_SESSION["employee_id"] . ".<br>";
+$conn = mysqli_connect($servername, $username, $password, $database);
+$ID = $_SESSION['employee_id'];
+$sql = "select * from employee where employee_id = '$ID';";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_array($result);
+$salary = $row['salary'];
+$name = $row['name'];
+$position = $row['position'];
+//echo "Your employee-id is " . $ID . ".<br>";
+//echo "Your name is " . $name . ".<br>";
+//echo "Your salary is " . $salary . ".<br>";
+//echo "Your position is " . $position . ".<br>";
 ?>
 <html>
 	<head>
 		<title>Employee Homepage</title>
 		<style>
+					input[type=text] {
+  width: 25%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+input[type=password ] {
+  width: 25%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+					input[type=submit] {
+			  display: inline-block;
+			  border-radius: 4px;
+			  background-color: #f4511e;
+			  border: none;
+			  color: #FFFFFF;
+			  text-align: center;
+			  font-size: 28px;
+			  padding: 20px;
+			  width: 300px;
+			  transition: all 0.5s;
+			  cursor: pointer;
+			  margin: 5px;
+			}
+
+			input[type = submit] span {
+			  cursor: pointer;
+			  display: inline-block;
+			  position: relative;
+			  transition: 0.5s;
+			}
+
+			input[type = submit] span:after {
+			  content: '\00bb';
+			  position: absolute;
+			  opacity: 0;
+			  top: 0;
+			  right: -20px;
+			  transition: 0.5s;
+			}
+
+			input[type = submit]:hover span {
+			  padding-right: 100px;
+			}
+
+			input[type = submit]:hover span:after {
+			  opacity: 1;
+			  right: 0;
+			}
 		body {
 			font-family: "Arial";
 			background:rgb(242,238,203);
@@ -40,6 +106,20 @@ echo "Employee ID is " . $_SESSION["employee_id"] . ".<br>";
 		<center>
 			<h1>Employee Homepage</h1>
 			<hr>
+			<?php
+	$conn = mysqli_connect($servername, $username, $password, $database);
+	$ID = $_SESSION['employee_id'];
+	$sql = "select * from employee where employee_id = '$ID';";
+	$result = mysqli_query($conn, $sql);
+	$row = mysqli_fetch_array($result);
+	$salary = $row['salary'];
+	$name = $row['name'];
+	$position = $row['position'];
+	echo "Your employee-id is " . $ID . ".<br>";
+	echo "Your name is " . $name . ".<br>";
+	echo "Your salary is " . $salary . ".<br>";
+	echo "Your position is " . $position . ".<br>";
+	?>
 			<a href = "employee-transaction.html">Transaction page</a><br>
 			<a href = "book-entry.html">Enter Details of Book</a><br>  
 			<a href = "homepage.html">Log Out</a><br>

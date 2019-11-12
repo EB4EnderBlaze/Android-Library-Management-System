@@ -1,9 +1,8 @@
 <html>
 	<head>
-		<title>Editing the information of employees</title>
+		<title>Deleting the information of employees</title>
 		<style>
-
-		input[type=text] {
+				input[type=text] {
   width: 25%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -86,10 +85,10 @@ input[type=password ] {
 	</head>
 	<body>
 		<center>
-			<h1>Employee Edit</h1>
+			<h1>Employee Delete</h1>
 			<hr>
-			<form action = "employee-edit1.php" method = "post"> 
-				ID : <input type = "text" name = "empID"><br><br>
+			<form action = "employee-delete.php" method = "post"> 
+				ID : <input type = "number" name = "empID"><br><br>
 				<input type = "submit" name = "empSubmit">
 			</form>
 			<a href="admin-home.php">Go Back to admin homepage</a>
