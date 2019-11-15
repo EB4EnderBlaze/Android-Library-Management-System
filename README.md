@@ -1,0 +1,2 @@
+This is my DBMS lab project in which I aim to design a library management system in which the front end is designed in php/html/javascript and backend is designed in mysql
+For information related to schema , ER diagram of the database management system check the synopsis.docx file
